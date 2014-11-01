@@ -50,7 +50,19 @@ $("table.dump")
 		.append($('<td>')
 			.append(value.Description)
 		)
+		//.append($('<td>')
+		//	.append(getImages(value);)
+		//)		
     );
+	
+	getImages(value);
+	
+	function getImages(images){
+			console.log("in get images");
+		$(images.Images).each(function( key, value){
+console.log(value.URL);
+});
+}		
 
   //console.log( value.Title);
   //console.log( value.Description);
