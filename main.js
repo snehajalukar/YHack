@@ -4,7 +4,7 @@ $(shows.response.Shows).each(function (key, value) {
     var imgUrls = getImages(value);
     console.log(imgUrls);
 
-    $("body").append('<div><p>' + value.Title + '</p>' + '<p>' + value.Description + '</p>' + imgUrls + '</div>');
+    $("body").append('<div class="show"><p>' + value.Title + '</p>' + '<p>' + value.Description + '</p>' + imgUrls + '</div>');
 
     function getImages(images) {
         console.log("in get images");
