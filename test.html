@@ -41,7 +41,8 @@ var shows = {"response":{"Shows":[{"id":"2827cc62-ecfd-11e0-aca6-0026b9414f30","
 var count = 0;
 $(shows.response.Shows).each(function( key, value) {
 count++;
-
+var imgUrls=getImages(value);
+console.log(imgUrls);
 $("table.dump")
     .append($('<tr>')
         .append($('<td>')
@@ -50,18 +51,27 @@ $("table.dump")
 		.append($('<td>')
 			.append(value.Description)
 		)
-		//.append($('<td>')
-		//	.append(getImages(value);)
-		//)		
+		.append($('<td>')
+			.append(imgUrls)
+		)		
     );
 	
-	getImages(value);
+//getImages(value);
 	
 	function getImages(images){
 			console.log("in get images");
-		$(images.Images).each(function( key, value){
-console.log(value.URL);
-});
+			var counter = 0; 
+			var array = [];
+			var urls="";
+			$(images.Images).each(function( key, value){
+				array.push(value.URL);
+				console.log(value.URL);
+				urls = urls + '<img src="'+ value.URL +'">';
+				console.log(urls, "URLS");
+				counter++;
+			});
+			return urls;
+console.log(counter);
 }		
 
   //console.log( value.Title);
