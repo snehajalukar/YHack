@@ -1,6 +1,7 @@
 div.show {
     width: 200px;
     display: inline-block;
+vertical-align: top;
 }
 
     div.show img {
