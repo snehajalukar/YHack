@@ -2,7 +2,7 @@ var shows = { "response": { "Shows": [{ "id": "2827cc62-ecfd-11e0-aca6-0026b9414
 
 $(shows.response.Shows).each(function (key, value) {
     var imgUrls = getImages(value, false);
-    console.log(imgUrls);
+   // console.log(imgUrls);
 
     $("body").append('<div class="show"><p>' + value.Title + '</p>' + '<p>' + value.Description + '</p>' + imgUrls + '</div>');
 
@@ -13,18 +13,21 @@ $(shows.response.Shows).each(function (key, value) {
         var urls = "";
         $(images.Images).each(function (key, value) {
             if (!bannerBool) { // if we're trying not to display the banner images.
-                console.log("banner-bool", bannerBool);
-                if ((value.URL).indexOf("banner") == -1 && !(value.URL).indexOf("header") == -1) {
-                    console.log(!(value.URL).indexOf("banner"));
+              //  console.log("banner-bool", bannerBool);
+                if (((value.URL).indexOf("banners") == -1) && ((value.URL).indexOf("header") == -1) && ((value.URL).indexOf("banner") == -1) && ((value.URL).indexOf("Header") == -1)) {
+                    console.log((value.URL).indexOf("banner"));
                     console.log("in the !=banner", value.URL);
                     array.push(value.URL);
+                    urls = urls + '<img src="' + value.URL + '">';
                 }
+                console.log((value.URL).indexOf("banner") == -1);
             }
             else {
                 array.push(value.URL);
-                console.log(value.URL);
+                urls = urls + '<img src="' + value.URL + '">';
+                console.log("hi");
+              //  console.log(value.URL);
             }
-            urls = urls + '<img src="' + value.URL + '">';
         //    console.log(urls, "URLS");
             counter++;
         });
