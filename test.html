@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<div class="dump">
+</div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+
+$.get( "api.viacom.com/v12/shows?apiKey=vT4Aq18ANEmQFPZI4jxFpJFypuGrwmVK", function( data ) {
+  $( ".dump" ).html( data );
+ // alert( "Load was performed." );
+});
+
+
+</script>
+</body>
+</html>
